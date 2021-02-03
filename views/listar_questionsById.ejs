@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+			<title>Pregunta 404</title>
+			<meta charset="utf-8"/>
+			<link rel="stylesheet" href="/css/Pagina_inicial.css" media="screen"/>
+			<link rel="preconnect" href="https://fonts.gstatic.com">
+			<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	</head>
+	
+	<body>
+        <%- include("header") %>
+        <p class="todasPreguntas"><%= pregunta.title %></p>
+        
+        <div class="formular_pregunta">
+        <div class="visita"><p>Vista <%= pregunta.visit %> veces</p></div>
+        <div class="votos">
+            <p style="display: inline;"><%= pregunta.votos%> Votos</p>
+            <a href="/preguntas/addPointPregunta/<%=pregunta.id%>"><img class="imgVoto" src="/img/manoarriba.jpg"></a>
+            <a href="/preguntas/deletePointPregunta/<%=pregunta.id%>"><img class="imgVoto" src="/img/manoabajo.jpg"></a>
+        </div>
+        <div class="pregunta">
+            <p><%= pregunta.text %></p>
+            <div class="etiquetaContenedor">
+                <% if(pregunta.tags!==null && pregunta.tags!==undefined){%>
+                    <% pregunta.tags.forEach(function(tag) {%>
+                    <a class="etiquetas" href="/preguntas/questionsByTag/<%=tag%>"><%= tag %></a>
+                    <%});%>	
+                <%};%>
+            </div>
+            <div class="info_autor" style="margin-left: auto;">
+                <label style="font-size: 13px;">Formaulada el <%= pregunta.date %> </label>
+                <img class="imgUsuario" src="/img/profile_imgs/<%= pregunta.userimg %>">
+                <a href="/usuarios/perfil_user/<%=pregunta.userid%>"><%= pregunta.username %></a>	
+            </div>   
+        </div>
+        
+        <div>
+        <% if(answers[0].id!==null){%>
+        <p style="font-size: 20px; margin-top: 20px;"><%= answers.length %> Respuestas</p>
+
+        <% answers.forEach(function(answer) {%>
+        <div class="respuesta">
+            <div class="votos">
+                <p style="display: inline;"><%= answer.votos%> Votos</p>
+                <a href="/preguntas/addPointRespuesta/<%=answer.id%>"><img class="imgVoto" src="/img/manoarriba.jpg"></a>
+                <a href="/preguntas/deletePointRespuesta/<%=answer.id%>"><img class="imgVoto" src="/img/manoabajo.jpg"></a>
+            </div>
+            <p style="margin-top: 8px;"><%= answer.text %></p>	
+            <div class="info_autor" style="margin-left: auto;">
+                <label style="font-size: 13px;">Formaulada el <%= answer.date %> </label>
+                <img class="imgUsuario" src="/img/profile_imgs/<%= answer.userimg %>">
+                <a href="/usuarios/perfil_user/<%=answer.userid%>"><%= answer.username %></a>	
+            </div>            
+        </div>
+        <%});%> 
+        <%};%> 
+        <% if(answers[0].id===null){%>
+            <p style="font-size: 20px; margin-top: 20px;">0 Respuestas</p>
+        <%};%> 
+        <p style="font-size: 20px; margin-top: 20px;">Tu Respuesta</p>
+        <form action="/preguntas/send_respuesta/<%= pregunta.id %>" method="POST">
+            <textarea type="text" name="tuRespuesta"></textarea>
+            <div style="text-align: center;">
+            <button type="submit">Publica tu respuesta</button>
+            </div>
+        </form>
+        </div>
+        </div>
+        
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<header>
+<div class="fixedMenu">
+    <div class="encabezadoMenu">
+       
+        <div class="menu">
+            <a href="/preguntas/listar_questions/todas"><button>Preguntas</button></a>
+            <a href="/preguntas/sin_responder"><button>Sin responder</button></a>
+            <a href="/usuarios/listar_users"><button>Usuarios</button></a>
+        </div>
+
+        <div class="titulo">
+            <p class="txtTarea" >404</p>
+        </div>
+        
+        <div class="log">
+            <img class="imgUsuario" src="/usuarios/imagenUsuario">
+            <a style="font-size: 22px;" href="/usuarios/perfil_user/<%=userId%>"><%= userName %></a>
+            <a href="/logout"><button>Cerrar Sesion</button></a>   	
+        </div>
+        
+       
+    </div>
+    <form action="/preguntas/questionsByText" method="POST">
+    <div class="busqueda">
+        <button type="submit">Buscar</button>
+        <input type="text" name="filtrotext" placeholder="Buscar por titulo/cuerpo de pregunta">
+    </div>
+    </form>
+    
+</div>
+</header>

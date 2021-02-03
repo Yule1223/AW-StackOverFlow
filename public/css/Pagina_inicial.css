@@ -1,0 +1,485 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+/*Paleta de colores para usar
+
+https://colorhunt.co/palette/213161*/
+body {
+    height:100%; 
+    /*background-image: url('img/background.jpg');*/
+    /*text-transform: uppercase;*/
+    background-color: #0e918c;
+}
+
+html{
+    font-family: 'Roboto', sans-serif;
+}
+
+.encabezado{
+    background-color: #d2d3c9;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 2px solid black;
+}
+
+.encabezadoMenu{
+    display: flex;
+    background-color: #d2d3c9;
+    width: 100%;
+    border-bottom: 2px solid black;
+    justify-content: space-between;
+}
+
+.encabezado .titulo{
+    text-align: center;
+}
+
+.fixedMenu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.txtTarea{
+    font-weight: bolder;
+    font-size: 150px;
+    color: #3d84a8;
+    /*Efecto 3d*/
+    text-shadow: 0 1px 0 #ccc, 
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
+}
+
+.contenido{
+    display: flex;
+    padding-top: 15%;
+    width: auto;
+    height: auto;
+    align-items: center;
+    flex-direction: column;
+}
+
+.formulario label{
+    padding-top: 20px;
+}
+
+.formulario input{
+    width: 450px;
+    height: 30px;
+    font-size: 20px;
+    border: 1px solid black;
+}
+
+textarea:focus, input:focus, input[type]:focus {
+    border-color: rgb(255, 144, 0);
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(255,144,0,0.6);
+    outline: 0 none;
+}
+
+
+input[type="file"]{
+    font-size: 19px;
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.menu button{
+    background-color: #3d84a8;
+    width: 200px;
+    height: 35px;
+}
+
+.menu a{
+    margin: 5px auto;
+}
+
+button{
+    cursor: pointer;
+    border: 1px solid black;
+    color: black;
+    border-radius: 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.contenido button{
+    background-color: #d2d3c9;
+    width: 200px;
+    height: 35px;
+    margin: 20px auto;
+}
+
+.menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 20%;
+}
+
+.log{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+
+.imgUsuario{
+    width: 40%;
+    margin: 0px auto;
+    border-radius: 50%;
+}
+
+.log a{
+    margin: 3px auto;
+    color: brown;
+}
+
+.log button{
+    margin: 2px auto;
+    padding: 4px;
+    background-color: #3d84a8;
+}
+
+.busqueda button{
+    background-color: #3d84a8;
+    margin: 0 10px;
+    width: 10%;
+}
+
+.busqueda input{
+    width: 80%;
+    background-image: url('/img/find.png');
+    background-size: 30px;
+    background-repeat: no-repeat;
+    height: 30px;
+    font-size: 20px;
+    border: 1px solid black;
+    padding-left: 30px;
+}
+
+.busqueda{
+    width: 100%;
+    display: flex;
+    padding-top: 20px;
+    background-color: #0e918c;
+}
+
+.lista_preguntas{
+    margin-top: 250px;
+}
+
+.lista_preguntas p{
+    text-align: center;
+    font-size: 25px;
+}
+
+.nPreguntas{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+} 
+
+.nPreguntas p{
+    font-size: 22px;
+}
+
+.nPreguntas button{
+    background-color: #3d84a8;
+    padding: 4px;
+}
+
+.preguntas{
+    display: flex;
+    width: 50%;
+    margin: 20px auto;
+    background-color: antiquewhite;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.lasPreguntas{
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    width: 75%;
+}
+
+.lasPreguntas p{
+    font-size: 15px;
+    padding: 15px 0px;
+}
+
+.etiquetaContenedor{
+    margin: 0 auto;
+    display: flex;
+    width: 100%;
+}
+
+.etiquetas{
+    margin: 5px;
+    background-color: #68b8b5;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.lasPreguntas a{
+    color: #215a77;
+    font-weight: bolder;
+}
+
+.info_autor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+}
+
+.info_autor label{
+    font-size: 13px;
+}
+
+.info_autor a{
+    margin: 0 auto;
+    color: brown;
+}
+
+.formular{
+    padding-top: 15px;
+    margin-top: 250px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.formular_pregunta button{
+    margin: 30px auto 20px auto;
+    padding: 5px;
+    background-color: #3d84a8;
+    align-items: center;
+}
+
+.formular_pregunta input{
+    font-size: 15px;
+    padding: 2px;
+    margin: 3px auto;
+    width: 100%;
+}
+
+.formular_pregunta textarea{
+    height: 200px;
+    font-size: 15px;
+    padding: 2px;
+    width: 100%;
+}
+
+.formular_pregunta label{
+    font-size: 20px;
+    margin-top: 18px;
+}
+
+.formular_pregunta{
+    margin: 30px auto 100px auto;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    background-color: antiquewhite;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.todasPreguntas{
+    padding-top: 15px;
+    margin-top: 250px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.pregunta{
+    background-color: rgb(136, 184, 168);
+    border-radius: 12px;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.respuesta{
+    border-top: 2px solid black; 
+    margin-top: 20px;
+    background-color: rgb(136, 184, 168);
+    padding: 5px;
+}
+
+.visita{
+    background-image: linear-gradient(to right, rgb(149, 149, 241), rgb(216, 178, 178));
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.votos{
+    background-image: linear-gradient(to right, rgb(241, 204, 149), rgb(216, 178, 178));
+    padding: 3px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.imgVoto{
+    width: 3%;
+    border-radius: 50%;
+    margin-left: 4px;
+}
+
+.filtrar input{
+    width: 200px;
+    background-image: url('/img/find.png');
+    background-size: 30px;
+    background-repeat: no-repeat;
+    height: 30px;
+    font-size: 20px;
+    border: 1px solid black;
+    padding-left: 30px;
+}
+
+.filtrar{
+    width: 300px;
+}
+
+.cadausuario{
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    align-items: center;
+    background-color: rgba(241, 204, 149, 0.5);
+    border-radius: 5%;
+}
+
+.usuarios{
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 80%;
+    display: grid;
+    padding: 20px;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: auto;
+}
+
+.infousuario{
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    height: auto;
+}
+
+.estatisticas{
+    display: flex;
+    width: 100%;
+}
+
+.estatistica{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.medallastitulo{
+    padding-top: 50px;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.medallas{
+    margin: 0 auto;
+    width: 90%;
+    display: grid;
+    padding: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: auto;
+}
+
+.cadamedalla{
+    border: none;
+    padding: 5px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.infomedalla{
+    background-color: darkolivegreen;
+    color: rgb(213, 228, 199);
+    margin-top: 10px;
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 8px;
+    font-weight: lighter;
+}
+
+.infosmedalla{
+    display: flex;
+    flex-direction: column;
+}
+
+.perfil{
+    margin: 300px auto 100px auto;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    background-color: rgba(241, 204, 149, 0.4);
+    border-radius: 15px;
+    padding: 10px;
+}
+
+a{
+    text-decoration: none;
+}
+
+button:hover{
+    background-color: white;
+    border: 2px solid #3d84a8;
+}
+
+button{
+    background-color: white;
+    border: 2px solid #3d84a8;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    transition: all 0.5s;
+}
+
+/* CODIGO DE EFECTO DE TEXTO
+.tuclase {
+    text-align: left; 
+    font-family: Arial Black; 
+    font-weight: bold; font-size: 30px; 
+    background: #202020; 
+    -webkit-background-clip: text; 
+    -moz-background-clip: text; 
+    background-clip: text; 
+    color: transparent; 
+    text-shadow: 0px 3px 3px rgba(255,255,255,0.4),0px -1px 1px rgba(0,0,0,0.3);
+}*/

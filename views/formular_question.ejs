@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+        <title>Formular-Pregunta 404</title>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="/css/Pagina_inicial.css" media="screen"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <%- include("header") %>
+        <p class="formular">Formular una pregunta</p>
+
+        <form action="/preguntas/formular_question" method="POST">
+            <div class="formular_pregunta">
+            <label>Título</label>
+            <p>Sé específico e imagina que estás haciendo la pregunta a otra persona</p>
+            <input type="text" name="title" placeholder="¿Cuál es tu pregunta sobre programación de aplicaciones web?" required/>
+
+            <label>Cuerpo</label>
+            <p>Incluye toda la información alguien necesitaría para responder tu pregunta</p>
+            <textarea type="text" name="text" required></textarea>
+
+            <label>Etiquetas</label>
+            <p>Añade hasta 5 etiquetas para describir sobre qué trata tu pregunta</p>
+            <input type="text" name="tags" placeholder="Por ejemplo: @Node@express">
+            <% if (errorMsg) { %>
+                <p style="color:red;text-align: center;font-size: 18px;padding-top: 4px;">
+                  <%=errorMsg%>
+                </p>
+            
+                <% } else { %>
+                  <p></p>
+                  <% } %>
+            <button type="submit">Publica tu pregunta</button>
+            </div>
+        </form>
+       
+        
+	</body>
+</html>

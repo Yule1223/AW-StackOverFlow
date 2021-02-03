@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+			<title>Login 404</title>
+			<meta charset="utf-8"/>
+			<link rel="stylesheet" href="/css/Pagina_inicial.css" media="screen"/>
+			<link rel="preconnect" href="https://fonts.gstatic.com">
+			<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	</head>
+	
+	<body>
+		<div class="encabezado">
+			<div class="titulo">
+				<p class="txtTarea" >404</p>
+			</div>
+		</div>
+
+		<div class="contenido">
+			<form action="/usuarios/login" method="POST">
+				<div class="formulario">
+					<label for="name">Correo * </label>
+					<input type="email" name="email" required/> 
+
+					<label for="name">Contrase&ntilde;a *</label>
+					<input type="password" name="password" required/>
+					<% if (errorMsg) { %>
+						<p style="color:red;text-align: center;font-size: 18px;padding-top: 4px;">
+						  <%=errorMsg%>
+						</p>
+					
+						<% } else { %>
+						  <p></p>
+						  <% } %>
+
+					<button type="submit">Iniciar Sesion</button>
+					
+				</div>
+      		</form>
+			<a href="/crear_cuenta">
+				<button type="submit">Crear Cuenta</button>
+			</a>
+		</div>
+
+	</body>
+</html>

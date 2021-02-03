@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+			<title>Perfil 404</title>
+			<meta charset="utf-8"/>
+			<link rel="stylesheet" href="/css/Pagina_inicial.css" media="screen"/>
+			<link rel="preconnect" href="https://fonts.gstatic.com">
+			<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	</head>
+	
+	<body>
+        <%- include("header") %>
+        <div class="perfil">
+            <div class="estatisticas">
+                <div class="infousuario">
+                    <img class="imgUsuario" src="/img/profile_imgs/<%= user.img %>">
+                    <a href="/usuarios/perfil_user/<%=user.id%>" style="color: brown;"><%= user.name %></a>
+                    <br>
+                    <p>Miembro desde <%= user.date %></p>
+                </div>
+                <div class="estatistica">
+                    <p style="font-size: 25px;color: rgb(71, 71, 11);">ESTATISTICAS</p>
+                    <p>Reputación: <%= user.reputation %></p>
+                    <p>Preguntas: <%= user.nQuestions %></p>
+                    <p>Respuestas: <%= user.nAnswers %></p>
+                </div>
+            </div>
+            <div class="medallastitulo">
+                <p style="font-size: 25px;color: rgb(71, 71, 11);">MEDALLAS</p>
+            </div>
+            <div class="medallas">
+                <div class="cadamedalla" style="background-color: burlywood;">
+                    <p>BRONCE</p>
+                    <p><%= user.nBronces %></p>
+                </div>
+                <div class="cadamedalla" style="background-color: silver;">
+                    <p>PLATA</p>
+                    <p><%= user.nPlatas %></p>
+                </div>
+                <div class="cadamedalla" style="background-color: rgb(252, 252, 133);">
+                    <p>ORO</p>
+                    <p><%= user.nOros %></p>
+                </div>
+                <div class="infosmedalla">
+                    <% if(user.bronces!==null && user.bronces!==undefined){ %>
+                    <% user.bronces.forEach(function(bronce){%>
+                        <div class="infomedalla">
+                        <%= bronce %>
+                        </div>
+                    <%});%>
+                    <%}%> 
+                </div>
+                <div class="infosmedalla">
+                    <% if(user.platas!==null && user.platas!==undefined){ %>
+                    <% user.platas.forEach(function(plata){%>  
+                        <div class="infomedalla">             
+                            <%= plata %>  
+                        </div>  
+                    <%});%>
+                    <%}%> 
+                </div>
+                <div class="infosmedalla">
+                    <% if(user.oros!==null && user.oros!==undefined){ %>
+                    <% user.oros.forEach(function(oro){%>
+                        <div class="infomedalla">
+                            <%= oro %>
+                        </div>    
+                    <%});%>
+                    <%}%>  
+                </div>
+            </div>
+        </div>
+	</body>
+</html>

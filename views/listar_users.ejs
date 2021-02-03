@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+			<title>Usuarios 404</title>
+			<meta charset="utf-8"/>
+			<link rel="stylesheet" href="/css/Pagina_inicial.css" media="screen"/>
+			<link rel="preconnect" href="https://fonts.gstatic.com">
+			<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	</head>
+	
+	<body>
+        <%- include("header") %>
+        <p class="todasPreguntas"><%= title %></p>
+
+        <div class="nPreguntas">
+            <% if(userList!==undefined){%>
+            <p><%= userList.length%> usuarios</p>
+            <%}%>
+            <% if(userList===undefined){%>
+            <p>0 usuarios</p>
+            <%}%>
+            <form action="/usuarios/usersByText" method="POST">
+                <div class="filtrar">
+                    <input type="text" name="filtrouser" placeholder="Filtrar por usuario">
+                    <button type="submit">Filtrar</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="usuarios">
+        <% if(userList!==undefined){%>
+        <% userList.forEach(function(user) {%>
+        <div class="cadausuario">
+            <br>
+            <img class="imgUsuario" src="/img/profile_imgs/<%= user.img %>">
+            <a href="/usuarios/perfil_user/<%=user.id%>" style="color: brown;"><%= user.name %></a>
+            <br>
+            <p><%= user.reputation %></p>
+            <% if(user.tags!==null){%>
+            <a class="etiquetas" href="/preguntas/questionsByTag/<%=user.tags%>"><%= user.tags %></a>
+            <%}%>
+        </div>
+        <%});%>
+        <%}%>
+        </div>
+	</body>
+</html>

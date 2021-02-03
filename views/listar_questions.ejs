@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+			<title>Preguntas 404</title>
+			<meta charset="utf-8"/>
+			<link rel="stylesheet" href="/css/Pagina_inicial.css" media="screen"/>
+			<link rel="preconnect" href="https://fonts.gstatic.com">
+			<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	</head>
+	
+	<body>
+        <%- include("header") %>
+        <p class="todasPreguntas"><%= title %></p>
+
+        <div class="nPreguntas">
+            <p><%= questionList.length%> preguntas</p>
+            <a href="/preguntas/ir_a_formular"><button type="submit">Formular una pregunta</button></a>
+         </div>
+        
+        <% if(typeof(questionList) !== "undefined"){%>
+            <% questionList.forEach(function(question) {%>
+            <div class="preguntas">
+                <div class="lasPreguntas">
+                <a href="/preguntas/1question/<%=question.id%>"><%= question.title %></a>
+                <p>
+                <%- include("150letras", {text: question.text}) %>
+                </p>
+                <div class="etiquetaContenedor">
+                    <% if(question.tags !== null && question.tags !== undefined){%>
+                        <% question.tags.split(',').forEach(function(tag) {%>
+                        <a class="etiquetas" href="/preguntas/questionsByTag/<%=tag%>"><%= tag %></a>
+                        <%});%>	
+                    <%};%>
+                </div>	
+                </div>
+
+                <div class="info_autor">
+                    <label>Formulada el <%= question.date %> </label>
+                    <img class="imgUsuario" src="/img/profile_imgs/<%= question.img %>">
+                    <a href="/usuarios/perfil_user/<%=question.id_user%>"><%= question.name %></a>	
+                </div>            
+            </div>
+            <%});%> 
+        <%}%>
+        
+	</body>
+</html>

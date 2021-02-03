@@ -1,0 +1,6 @@
+<% if(text.length<=150){ %>
+    <%= text %>
+<%}%>
+<% if(text.length>150){ %>
+<%= text.slice(0,150)+"..." %>
+<%};%>

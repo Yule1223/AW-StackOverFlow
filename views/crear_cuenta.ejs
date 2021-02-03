@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Crear-Cuenta 404</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="/css/Pagina_inicial.css" media="screen"/>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	</head>
+	
+	<body>
+		<div class="encabezado">
+			<div class="titulo">
+				<p class="txtTarea" >404</p>
+			</div>
+		</div>
+
+		<div class="contenido">
+			<form action="/usuarios/formular_cuenta" method="POST" enctype="multipart/form-data">
+				<div class="formulario">
+					<label for="mail">Correo * </label>
+					<input type="email" name="email" required/> 
+
+					<label for="psw">Contrase&ntilde;a *</label>
+					<input type="password" name="passw1" minlength="4" required/>
+
+					<label for="psw2">Confirmar contrase&ntilde;a *</label>
+					<input type="password" name="passw2" minlength="4" required/>
+
+					<label for="nick">Nombre para mostrar * </label>
+					<input type="text" name="name" required/> 
+						
+					<label for="imgPerfil">Imagen de perfil </label>
+					<input type="file" name="image">
+
+					<% if (errorMsg) { %>
+						<p style="color:red;text-align: center;font-size: 18px;padding-top: 4px;">
+						  <%=errorMsg%>
+						</p>
+					
+						<% } else { %>
+						  <p></p>
+						  <% } %>
+					<button type="submit">Crear Cuenta</button>
+
+						
+				</div>
+					
+			</form>
+				
+			<a href="/login">
+				<button>Iniciar Sesion</button>
+			</a>
+				
+		</div>
+	</body>
+</html>
